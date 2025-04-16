@@ -7,6 +7,6 @@ assignees: ''
 
 ---
 
-Assignees와 관련 Labels을 모두 선택해주세요
+Assignees와 관련 Labels을 모두 선택해주세요 - 이 문장은 지워주세요
 - [ ] 구현내용1
 - [ ] 구현내용2
