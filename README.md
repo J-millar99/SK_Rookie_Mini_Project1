@@ -1,4 +1,4 @@
-# SK_Rookie_Mini_Project1
+# SK_Rookies_Mini_Project1
 
 # 잡파인드 (JobFind) 프로젝트
 
