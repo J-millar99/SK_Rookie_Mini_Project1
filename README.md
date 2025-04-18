@@ -71,6 +71,6 @@ root/
 ```
 
 ## 팀원
-- [조은지](GitHub 프로필 링크)
-- [지재현](GitHub 프로필 링크)
+- [조은지](https://github.com/lemongza)
+- [지재현](https://github.com/J-millar99/)
 - [황지영](GitHub 프로필 링크)
