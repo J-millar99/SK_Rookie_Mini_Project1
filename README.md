@@ -22,9 +22,9 @@
 3. 개인의 이해도, 기술 습득 정도, 문제 해결 능력을 종합적으로 보여주는 결과물 제작
 
 ## 작업 환경
-- **GitHub**: (추후 업데이트 예정)
-- **Notion**: (추후 업데이트 예정)
-- **Working Driver(Naver works)**: (추후 업데이트 예정)
+- **GitHub**
+- **Notion**
+- **Working Driver(Naver works)**
 
 ## 주요 기능
 - 취업 정보 데이터 수집 및 저장
