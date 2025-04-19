@@ -140,7 +140,7 @@ def save_cleaned_data(df: pd.DataFrame, path: str) -> None:
     
 
 if __name__ == "__main__":
-    raw_path = "../data/sample_dummy.json"
+    raw_path = "../data/seoul_jobs_20250419_020041.json"
     save_path = "../data/cleaned_data.json"
     raw_data = load_raw_data(raw_path)
     df_clean = clean_data(raw_data)
