@@ -1,0 +1,24 @@
+# 웹 스크래핑
+selenium==4.18.1
+webdriver-manager==4.0.1
+
+# 데이터 분석
+pandas>=1.5.0
+numpy>=1.22.0
+
+# 데이터 시각화
+matplotlib>=3.6.0
+seaborn>=0.12.0
+folium>=0.14.0
+wordcloud>=1.8.2
+
+# 데이터베이스
+pymysql==1.1.0
+sqlalchemy==2.0.27
+
+# 웹 애플리케이션
+streamlit==1.32.2
+
+# 기타 유용한 라이브러리
+requests==2.31.0
+python-dotenv==1.0.1
