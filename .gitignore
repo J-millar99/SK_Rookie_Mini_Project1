@@ -1,0 +1,17 @@
+# Python 관련
+__pycache__/
+*.pyc
+
+# 가상환경
+.venv/
+env/
+venv/
+
+# Jupyter/Colab 체크포인트
+.ipynb_checkpoints/
+
+# macOS 자동 생성 파일
+.DS_Store
+
+# 환경 파일
+.env
