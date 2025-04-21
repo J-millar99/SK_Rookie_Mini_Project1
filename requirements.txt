@@ -17,15 +17,8 @@ pymysql==1.1.0
 sqlalchemy==2.0.27
 
 # 웹 애플리케이션
-streamlit==1.32.2
-
-# 기타 유용한 라이브러리
 streamlit==1.44.1
 streamlit-folium==0.24.1
-pandas==2.2.3
-numpy==2.2.5
-matplotlib==3.10.1
-folium==0.19.5
 branca==0.8.1
 scikit-learn==1.4.2
 
