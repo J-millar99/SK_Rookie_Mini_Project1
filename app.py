@@ -97,7 +97,7 @@ with col2:
 with col3:
     st.markdown("""
     <div class="feature-box">
-        <h4>🧠 recomand job</h4>
+        <h4>🧠 recommend job</h4>
         <p>내가 입력한 관심 직무, 활동 경험을 바탕으로<br>
         인공지능이 최적의 공고를 추천합니다.</p>
     </div>

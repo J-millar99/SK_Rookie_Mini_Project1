@@ -6,10 +6,8 @@ import folium
 from folium.plugins import MarkerCluster
 from streamlit_folium import st_folium
 import matplotlib.pyplot as plt
-import matplotlib.font_manager as fm
-import matplotlib as mpl
-from mpl_toolkits.mplot3d import Axes3D
 import json
+import platform
 
 def save_scraped_jobs_to_file():
     with open("data/scraped_jobs.json", "w", encoding="utf-8") as f:
@@ -22,7 +20,22 @@ def save_scraped_jobs_to_file():
 @st.cache_data
 def load_data():
     path = os.path.join("data", "cleaned_data.json")
-    return pd.read_json(path)
+    df = pd.read_json(path)
+
+    # ✅ 1. 필요한 컬럼 중 빈 문자열이나 NaN 있으면 제거
+    required_cols = ["지역", "직군", "고용형태", "경력"]
+
+    # NaN 제거
+    df = df.dropna(subset=required_cols)
+
+    # 빈 문자열 제거
+    for col in required_cols:
+        df = df[df[col].str.strip() != ""]
+
+    df["고용형태"] = df["고용형태"].apply(lambda x: "단기근로" if "긱" in x else x)
+
+    return df
+
 
 df = load_data()
 df["공고링크"] = df.apply(lambda row: f"[{row['채용공고']}]({row['URL']})", axis=1)
@@ -41,7 +54,26 @@ with st.sidebar:
 
     keyword = st.text_input("회사명 또는 공고명 키워드")
     employment = st.selectbox("고용형태", ["전체"] + sorted(df["고용형태"].dropna().unique().tolist()))
-    experience = st.selectbox("경력", ["전체"] + sorted(df["경력"].dropna().unique().tolist()))
+
+    st.sidebar.markdown("**경력 필터**")
+
+    career_options = ["전체", "무관", "신입", "1년 이상", "2년 이상", "3년 이상", "5년 이상",
+                      "7년 이상", "10년 이상", "13년 이상", "15년 이상", "17년 이상"]
+
+    # 슬라이더: index로 경력 선택
+    selected_idx = st.slider(
+        label="경력 선택",
+        min_value=0,
+        max_value=len(career_options) - 1,
+        value=0,  # ✅ 기본값은 "전체"로!
+        format=None
+    )
+
+    experience = career_options[selected_idx]
+    st.caption(f"▶️ 선택된 경력: **{experience}**")
+
+
+
 
     st.markdown("---")
     st.markdown("**정렬 옵션**")
@@ -181,7 +213,15 @@ if is_initial_state:
     st.subheader(":bar_chart: 지역별 공고 수 시각화")
 
     # 한글 폰트 설정 (macOS는 AppleGothic)
-    mpl.rc('font', family='AppleGothic')
+
+    system = platform.system()
+    if system == 'Darwin':  # macOS
+        plt.rc('font', family='AppleGothic')
+    elif system == 'Windows':
+        plt.rc('font', family='Malgun Gothic')  # 윈도우 한글 기본
+    else:  # Linux 등 기타
+        plt.rc('font', family='NanumGothic')  # 리눅스에서 널리 사용됨 (설치 필요할 수도 있음)
+
     plt.rcParams['axes.unicode_minus'] = False
 
     plt.style.use("ggplot")  # 또는 'seaborn', 'fivethirtyeight', 'bmh'
