@@ -69,7 +69,7 @@ st.markdown("""
 st.markdown('<div class="big-title">🎯 잡파인드 JobFind 대시보드</div>', unsafe_allow_html=True)
 st.markdown('<div class="subtitle">AI 추천 기반 채용 탐색 플랫폼에 오신 것을 환영합니다.</div>', unsafe_allow_html=True)
 
-st.markdown('<div class="subtitle">잡파인드는 여러분의 휘업을 응원합니다 ૮꒰ྀི∩´ ꒳ `∩꒱ྀིა</div>', unsafe_allow_html=True)
+st.markdown('<div class="subtitle">잡파인드는 여러분의 취업을 응원합니다 ૮꒰ྀི∩´ ꒳ `∩꒱ྀིა</div>', unsafe_allow_html=True)
 
 st.markdown("---")
 
